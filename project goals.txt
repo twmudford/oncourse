@@ -1,0 +1,14 @@
+Create an applet/spreadsheet that can:
+When given the BBYC course number and wind direction
+Give me the course buoys and headings/wind angles to/from each
+
+Extra:
+Have the ability to add extra/custom courses
+recommend sail (given sail inventory)
+
+
+Data that I have:
+Course maps
+Buoy names/numbers, locations/GPS positions
+
+one option for data input could be to take a csv or similar with course data (makes it transferrable)
