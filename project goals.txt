@@ -1,6 +1,6 @@
 Create an applet/spreadsheet that can:
 When given the BBYC course number and wind direction
-Give me the course buoys and headings/wind angles to/from each
+Return the course buoys and headings/wind angles to/from each
 
 Extra:
 Have the ability to add extra/custom courses
