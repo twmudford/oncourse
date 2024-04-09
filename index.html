@@ -2,11 +2,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>JavaScript Hello World Example</title>
+    <title>onCourse</title>
     <script src="index.js"></script>
 </head>
 <body>
-    <h1>Heading1</h1>
-    <!-- Other content goes here -->
+    <h1>onCourse</h1>
+    <form>
+        <label for="course-number">Course Number: </label><select id="course-number" name="course-number"></select><br>
+        <label for="wind-direction">Wind Direction: </label><input id="wind-direction" type="number" value="0" min="0" max="360" name="wind-direction"></input><br>
+        <button id="calculate" type="button" onclick="get_course()">Get Course</button>
+    </form>
+    <p id="course-description"></p>
 </body>
 </html>

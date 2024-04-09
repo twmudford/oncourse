@@ -1,48 +1,66 @@
-alert("Hello World!")
-
-// Course 16, clockwise, 9.8nm. start to mark 1 variable, mark 1 to 2 004°m mark 2 to 3 056°m mark 3 to 4 177°m mark 4 to 5 290°m mark 5 to 6 285°m mark 6 to 7 186°m to finish.
-
 magnetic_declination_akl = 20.24
 
 //markers
-start = {name:"Start", lat:"36°49.479S", long:"174°52.451E"}; //random point for start
-finish = {name:"Finish", lat:"36°50.536S", long:"174°52.625E"}; //barber pole
-mark_Westhaven = [{name:"Westhaven", lat:"36°49.90S", long:"174°44.91E"}];
-mark_Bayswater = [{name:"Bayswater", lat:"36°49.90S", long:"174°44.91E"}];//36°49.78S 174°45.77E
-mark_StanleyPoint = [{name:"Stanley Point", lat:"36°49.90S", long:"174°44.91E"}];//36°49.85S 174°46.59E
-mark_Devonport = [{name:"Devonport", lat:"36°49.90S", long:"174°44.91E"}];//36°50.00S 174°47.40E
-mark_TorpedoBay = [{name:"Torpedo Bay", lat:"36°49.90S", long:"174°44.91E"}];//36°50.11S 174°48.38E
-mark_NorthHead = [{name:"North Head", lat:"36°49.90S", long:"174°44.91E"}];//36°49.63S 174°49.08E
-mark_RoughRock = [{name:"Rough Rock", lat:"36°49.90S", long:"174°44.91E"}];//36°49.07S 174°49.50E
-mark_NarrowNeck = [{name:"Narrow Neck", lat:"36°49.90S", long:"174°44.91E"}];//36°47.83S 174°48.51E
-mark_Cable = [{name:"Cable", lat:"36°49.90S", long:"174°44.91E"}];//36°47.61S 174°47.28E
-mark_McKenzie = [{name:"McKenzie", lat:"36°49.90S", long:"174°44.91E"}];//36°46.84S 174°49.05E
-mark_SaltWorks = [{name:"Salt Works", lat:"36°49.90S", long:"174°44.91E"}];//36°47.80S 174°49.36E
-mark_FlaxPoint = [{name:"Flax Point", lat:"36°49.90S", long:"174°44.91E"}];//36°48.41S 174°49.95E
-mark_Rangitoto = [{name:"Rangitoto", lat:"36°49.90S", long:"174°44.91E"}];//36°48.80S 174°50.84E
-mark_NorthernLeading = [{name:"Northern Leading", lat:"36°49.90S", long:"174°44.91E"}];//36°49.33S 174°50.60E
-mark_BeanRock = [{name:"Bean Rock", lat:"36°49.90S", long:"174°44.91E"}];//36°50.19S 174°49.63E
-mark_Bastion = [{name:"Bastion", lat:"36°49.90S", long:"174°44.91E"}];//36°50.41S 174°49.36E
-mark_Orakei = [{name:"Orakei", lat:"36°49.90S", long:"174°44.91E"}];//36°50.54S 174°48.72E
-mark_Resolution = [{name:"Resolution", lat:"36°49.90S", long:"174°44.91E"}];//36°50.66S 174°47.89E
-mark_Chelsea = [{name:"Chelsea", lat:"36°49.90S", long:"174°44.91E"}];//36°49.68S 174°43.80E
-mark_Meola = [{name:"Meola", lat:"36°49.90S", long:"174°44.91E"}];//36°49.81S 174°42.66E
-mark_GulfHarbour = [{name:"Gulf Harbour", lat:"36°49.90S", long:"174°44.91E"}];//36°39.13S 174°48.03E
-mark_Torbay = [{name:"Torbay", lat:"36°49.90S", long:"174°44.91E"}];//36°42.50S 174°47.30E
-mark_Illomama = {name:"Illomama", lat:"36°48.70S", long:"174°52.62E"}; 
-mark_SergeantChannel = [{name:"Sergeant Channel", lat:"36°49.90S", long:"174°44.91E"}];//36°49.30S 174°57.40E
-mark_RockyBay = [{name:"Rocky Bay", lat:"36°49.90S", long:"174°44.91E"}];//36°49.98S 175°03.30E
-mark_Motukorea = {name:"Motukorea", lat:"36°49.80S", long:"174°52.00E"}; 
-mark_Motuhigreen = {name:"Motuhi Green", lat:"36°48.171S", long:"174°55.295E"}; //aprox
-mark_Navybuoy = {name:"Navy Buoy", lat:"36°49.899S", long:"174°54.678E"}; //approx 
-mark_BrownsIslandBeacon = {name:"Browns Island Beacon", lat:"36°49.438S", long:"174°53.927E"}; //approx 
+start = {name:"Start", lat:"36°49.479S", long:"174°52.451E"} //random point for start
+finish = {name:"Finish", lat:"36°50.536S", long:"174°52.625E"} //Karaka Light
+mark_Westhaven = {name:"Westhaven", lat:"36°49.90S", long:"174°44.91E"}
+mark_Bayswater = {name:"Bayswater", lat:"36°49.78S", long:"174°45.77E"}
+mark_StanleyPoint = {name:"Stanley Point", lat:"36°49.85S", long:"174°46.59E"}
+mark_Devonport = {name:"Devonport", lat:"36°50.00S", long:"174°47.40E"}
+mark_TorpedoBay = {name:"Torpedo Bay", lat:"36°50.11S", long:"174°48.38E"}
+mark_NorthHead = {name:"North Head", lat:"36°49.63S", long:"174°49.08E"}
+mark_RoughRock = {name:"Rough Rock", lat:"36°49.07S", long:"174°49.50E"}
+mark_NarrowNeck = {name:"Narrow Neck", lat:"36°47.83S", long:"174°48.51E"}
+mark_Cable = {name:"Cable", lat:"36°47.61S", long:"174°47.28E"}
+mark_McKenzie = {name:"McKenzie", lat:"36°46.84S", long:"174°49.05E"} 
+mark_SaltWorks = {name:"Salt Works", lat:"36°47.80S", long:"174°49.36E"}
+mark_FlaxPoint = {name:"Flax Point", lat:"36°48.41S", long:"174°49.95E"}
+mark_Rangitoto = {name:"Rangitoto", lat:"36°48.80S", long:"174°50.84E"}
+mark_NorthernLeading = {name:"Northern Leading", lat:"36°49.33S", long:"174°50.60E"}
+mark_BeanRock = {name:"Bean Rock", lat:"36°50.19S", long:"174°49.63E"}
+mark_Bastion = {name:"Bastion", lat:"36°50.41S", long:"174°49.36E"}
+mark_Orakei = {name:"Orakei", lat:"36°50.54S", long:"174°48.72E"}
+mark_Resolution = {name:"Resolution", lat:"36°50.66S ", long:"174°47.89E"}
+mark_Chelsea = {name:"Chelsea", lat:"36°49.68S ", long:"174°43.80E"}
+mark_Meola = {name:"Meola", lat:"36°49.81S", long:"174°42.66E"}
+mark_GulfHarbour = {name:"Gulf Harbour", lat:"36°39.13S", long:"174°48.03E"}
+mark_Torbay = {name:"Torbay", lat:"36°42.50S", long:"174°47.30E"}
+mark_Iliomama = {name:"Iliomama", lat:"36°48.70S", long:"174°52.62E"}
+mark_SergeantChannel = {name:"Sergeant Channel", lat:"36°49.30S", long:"174°57.40E"}
+mark_RockyBay = {name:"Rocky Bay", lat:"36°49.98S", long:"175°03.30E"}
+mark_Motukorea = {name:"Motukorea", lat:"36°49.80S", long:"174°52.00E"}
+mark_Motuihegreen = {name:"Motuihe Green", lat:"36°48.171S", long:"174°55.295E"} //aprox
+mark_Navybuoy = {name:"Navy Buoy", lat:"36°49.899S", long:"174°54.678E"} //approx 
+mark_BrownsIslandBeacon = {name:"Browns Island Beacon", lat:"36°49.438S", long:"174°53.927E"} //approx 
  
 
 //courses
-//add name and direction (cw, ccw) propertis to course object (make dictionary list), distance? (calculate?)
-course16 = [start, mark_Motukorea, mark_Illomama, mark_Motuhigreen, mark_Navybuoy, mark_BrownsIslandBeacon, mark_Illomama, mark_Motukorea, finish]
-
-let unique_markers = [...new Set(course16)];
+//TODO add name and direction (cw, ccw) propertis to course object (make dictionary list), distance? (calculate?)
+courses = {
+    4: [start, mark_Iliomama, mark_Motuihegreen, mark_Motukorea, finish],
+    5: [start, mark_Iliomama, mark_Motuihegreen, mark_Motukorea, mark_Iliomama, mark_Motuihegreen, mark_Motukorea, finish],
+    6: [start, mark_Motukorea, mark_Iliomama, mark_Motuihegreen, mark_Navybuoy, mark_BrownsIslandBeacon, mark_Motukorea, finish],
+    7: [start, mark_Motukorea, mark_BrownsIslandBeacon, mark_Navybuoy, mark_Motuihegreen, mark_Iliomama, mark_Motukorea, finish],
+    8: [start, mark_Motukorea, mark_Rangitoto, mark_Iliomama, mark_NorthHead, mark_Motukorea, finish],
+    9: [start, mark_Motukorea, mark_NorthHead, mark_Iliomama, mark_Rangitoto, mark_Motukorea, finish],
+    10: [start, mark_Motukorea, mark_BrownsIslandBeacon, mark_Navybuoy, mark_BrownsIslandBeacon, mark_Motukorea, mark_NorthernLeading, mark_Motukorea, finish],
+    11: [start, mark_NorthernLeading, mark_Rangitoto, mark_RoughRock, mark_NorthernLeading, mark_Rangitoto, mark_Motukorea, finish],
+    12: [start, mark_Motukorea, mark_RoughRock, mark_SaltWorks, mark_NarrowNeck, mark_Motukorea, finish],
+    13: [start, mark_Rangitoto, mark_BrownsIslandBeacon, mark_Navybuoy, mark_BrownsIslandBeacon, mark_Iliomama, mark_Motukorea, finish],
+    14: [start, mark_Motukorea, mark_SaltWorks, mark_NorthernLeading, mark_Iliomama, mark_Motukorea, mark_Iliomama, mark_Motukorea, finish],
+    15: [start, mark_Motukorea, mark_Iliomama, mark_Rangitoto, mark_Motukorea, finish],
+    16: [start, mark_Motukorea, mark_Iliomama, mark_Motuihegreen, mark_Navybuoy, mark_BrownsIslandBeacon, mark_Iliomama, mark_Motukorea, finish],
+    17: [start, mark_Motukorea, mark_Iliomama, mark_BrownsIslandBeacon, mark_Navybuoy, mark_BrownsIslandBeacon, mark_Iliomama, mark_Motukorea, finish],
+    18: [start, mark_Motukorea, mark_Iliomama, mark_Rangitoto, mark_Motukorea, mark_Iliomama, mark_Rangitoto, mark_Motukorea, finish],
+    19: [start, mark_Motukorea, mark_Rangitoto, mark_Iliomama, mark_Motukorea, mark_Rangitoto, mark_Iliomama, mark_Motukorea, finish],
+    20: [start, mark_Motukorea, mark_Motuihegreen, mark_Navybuoy, mark_BrownsIslandBeacon, mark_Iliomama, mark_NorthHead, mark_Rangitoto, mark_Motukorea, mark_Iliomama, mark_Motukorea, finish],
+    21: [start, mark_Motukorea, mark_McKenzie, mark_NorthHead, mark_McKenzie, mark_Motukorea, finish],
+    22: [start, mark_Motukorea, mark_Iliomama, mark_Motuihegreen, mark_Navybuoy, mark_BrownsIslandBeacon, mark_Motukorea, mark_Iliomama, mark_Rangitoto, mark_Motukorea, finish],
+    23: [start, mark_Motukorea, mark_BrownsIslandBeacon, mark_Navybuoy, mark_Motuihegreen, mark_Iliomama, mark_Motukorea, mark_Rangitoto, mark_Iliomama, mark_Motukorea, finish],
+    24: [start, mark_Motukorea, mark_Rangitoto, mark_Iliomama, mark_NorthHead, mark_Motuihegreen, mark_Rangitoto, mark_Iliomama, mark_Motukorea, finish],
+    25: [start, mark_Motukorea, mark_NorthHead, mark_Iliomama, mark_Rangitoto, mark_Motukorea, mark_Iliomama, mark_Rangitoto, mark_Motukorea, finish],
+    // 26: [start, mark_BrownsIslandBeacon, ((round Motuihe Is.)), finish] // TODO not sure how to map this
+}
 
 
 //change this to handle lat and long (remove code duplication, maybe break into another function)
@@ -72,8 +90,14 @@ function convert_coordinates(marker) {
 
 
 //convert coordinates for unique markers for a given course
-for (let i = 0; i < unique_markers.length; i++) {
-    convert_coordinates(unique_markers[i])
+function get_unique_markers(course) {
+    let unique_markers = [...new Set(course)];
+    for (let i = 0; i < unique_markers.length; i++) {
+        if(typeof(unique_markers[i].lat) != "number" ) {
+            convert_coordinates(unique_markers[i])
+        }
+    }
+    return unique_markers
 }
 
 
@@ -112,16 +136,15 @@ function find_angle(markA, markB) {
     angle_true = (angle_true + 360) % 360;
     angle_magnetic = angle_true - magnetic_declination_akl
 
-    //console.log("true: ", angle_true)
-    //console.log("magnetic: ", angle_magnetic)
     return angle_magnetic
 }
 
 
 function course_with_angles(course) {
     course_angles = []
+
     for (let i = 0; i < course.length-1; i++){
-        course_angles.push({mark_name: course[i].name , coursemarker: course[i], angle_next_mark: find_angle(course16[i], course16[i+1])});
+        course_angles.push({mark_name: course[i].name , coursemarker: course[i], angle_next_mark: find_angle(course[i], course[i+1])});
     }
     return course_angles
 }
@@ -129,20 +152,36 @@ function course_with_angles(course) {
 
 function wind_angle(course, wind_direction) {
     course_angles = course_with_angles(course)
+
     for (let i = 0; i < course_angles.length; i++){
-        angle_wind = course_angles[i].angle_next_mark - wind_direction
-        angle_wind = (angle_wind + 360) % 360;
+        angle_wind = wind_direction - course_angles[i].angle_next_mark
+        angle_wind = (angle_wind + 360) % 180;
         course_angles[i].wind_next_mark = angle_wind
+        leg = course[i].name.concat(' to ', course[i+1].name, ' ', Math.round(course_angles[i].angle_next_mark), '°m. TWA: ', Math.round(course_angles[i].wind_next_mark), '°<br>')
+        document.getElementById("course-description").innerHTML += leg
     }
 }
 
-wind_angle(course16, 270)
-course = course16
-console.log('Course 16')
-
-for (let i = 0; i < course_angles.length; i++){
-    console.log(course[i].name, 'to', course[i+1].name, Math.round(course_angles[i].angle_next_mark), '°m. TWA:', Math.round(course_angles[i].wind_next_mark));
+//Stuff on the webpage
+function courseList(){
+    select = document.getElementById("course-number")
+    for (const [key, value] of Object.entries(courses)) {
+        select.options[select.options.length] = new Option(key, key)
+    }
 }
+window.onload = courseList
+
+
+function get_course() {
+    course_num = document.getElementById("course-number").value
+    wind_dir = document.getElementById("wind-direction").value
+    unique_markers = get_unique_markers(courses[course_num]) //gets unique markers and converts GPS coordinates to decimal degrees
+    document.getElementById("course-description").innerHTML = "Course " + course_num + ":<br>"
+    wind_angle(courses[course_num], wind_dir)
+
+    //alert(data)
+}
+
 
 //not sure if will want/need this
 //distance between two points
@@ -162,7 +201,5 @@ for (let i = 0; i < course_angles.length; i++){
     var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
     return earthRadiusKm * c;
   }
-
-
 
 
