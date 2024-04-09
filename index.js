@@ -135,8 +135,8 @@ function find_angle(markA, markB) {
     angle_true = radians_to_degrees(angle_true);
     angle_true = (angle_true + 360) % 360;
     angle_magnetic = angle_true - magnetic_declination_akl
-
-    return angle_magnetic
+    //TODO add mechanism (radio button?) for selecting true or mag north
+    return angle_true
 }
 
 
@@ -157,7 +157,7 @@ function wind_angle(course, wind_direction) {
         angle_wind = wind_direction - course_angles[i].angle_next_mark
         angle_wind = (angle_wind + 360) % 180;
         course_angles[i].wind_next_mark = angle_wind
-        leg = course[i].name.concat(' to ', course[i+1].name, ' ', Math.round(course_angles[i].angle_next_mark), '°m. TWA: ', Math.round(course_angles[i].wind_next_mark), '°<br>')
+        leg = course[i].name.concat(' to ', course[i+1].name, ' ', Math.round(course_angles[i].angle_next_mark), '°. TWA: ', Math.round(course_angles[i].wind_next_mark), '°<br>')
         document.getElementById("course-description").innerHTML += leg
     }
 }
