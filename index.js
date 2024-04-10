@@ -4,8 +4,9 @@ magnetic_declination_akl = 20.24
 //TODO maybe convert courses and markers to json
 //markers
 start = {name:"Start", lat:"36°49.479S", long:"174°52.451E"} //random point for start
+start_rnzys = {name:"Start", lat:"36°49.976S", long:"174°45.167E"} //random point for start (same as finish_rnzys)
 finish_bbyc = {name:"Finish", lat:"36°50.536S", long:"174°52.625E"} //Karaka Light
-finish_rnzys = {name:"Finish", lat:"36°50.536S", long:"174°52.625E"} //TODO Change to westhaven
+finish_rnzys = {name:"Finish", lat:"36°49.976S", long:"174°45.167E"} //westhaven-ish
 mark_Westhaven = {name:"Westhaven", lat:"36°49.90S", long:"174°44.91E"}
 mark_Bayswater = {name:"Bayswater", lat:"36°49.78S", long:"174°45.77E"}
 mark_StanleyPoint = {name:"Stanley Point", lat:"36°49.85S", long:"174°46.59E"}
@@ -39,6 +40,8 @@ mark_BrownsIslandBeacon = {name:"Browns Island Beacon", lat:"36°49.438S", long:
 
 //courses
 //TODO add name and direction (cw, ccw) propertis to course object (make dictionary list), distance? (calculate?)
+//TODO incorportate rounding directions (in course objects? [{mark: mark1_name, rounding: rounding}, {mark: mark2_name, rounding: rounding}, etc])
+    // probably convert to json before doing this bit 
 courses = {
     bbyc: {
         4: [start, mark_Iliomama, mark_Motuihegreen, mark_Motukorea, finish_bbyc],
@@ -66,12 +69,12 @@ courses = {
         // 26: [start, mark_BrownsIslandBeacon, ((round Motuihe Is.)), finish_bbyc] // TODO not sure how to map this
     },
     rnzys: {
-        1: [start, mark_StanleyPoint, mark_Westhaven, mark_Bayswater, mark_Westhaven, mark_Bayswater, finish_rnzys],
-        2: [start, mark_Bayswater, mark_Westhaven, mark_Chelsea, mark_Bayswater, finish_rnzys],
-        3: [start, mark_Resolution, mark_StanleyPoint, mark_Bayswater, finish_rnzys],
-        4: [start, mark_Bayswater, mark_StanleyPoint, mark_Resolution, finish_rnzys],
-        5: [start, mark_Resolution, mark_TorpedoBay, finish_rnzys],
-        6: [start, mark_TorpedoBay, mark_Resolution, finish_rnzys]
+        1: [start_rnzys, mark_StanleyPoint, mark_Westhaven, mark_Bayswater, mark_Westhaven, mark_Bayswater, finish_rnzys],
+        2: [start_rnzys, mark_Bayswater, mark_Westhaven, mark_Chelsea, mark_Bayswater, finish_rnzys],
+        3: [start_rnzys, mark_Resolution, mark_StanleyPoint, mark_Bayswater, finish_rnzys],
+        4: [start_rnzys, mark_Bayswater, mark_StanleyPoint, mark_Resolution, finish_rnzys],
+        5: [start_rnzys, mark_Resolution, mark_TorpedoBay, finish_rnzys],
+        6: [start_rnzys, mark_TorpedoBay, mark_Resolution, finish_rnzys]
     }
 }
 
