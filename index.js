@@ -1,8 +1,11 @@
 magnetic_declination_akl = 20.24
 
+
+//TODO maybe convert courses and markers to json
 //markers
 start = {name:"Start", lat:"36°49.479S", long:"174°52.451E"} //random point for start
-finish = {name:"Finish", lat:"36°50.536S", long:"174°52.625E"} //Karaka Light
+finish_bbyc = {name:"Finish", lat:"36°50.536S", long:"174°52.625E"} //Karaka Light
+finish_rnzys = {name:"Finish", lat:"36°50.536S", long:"174°52.625E"} //TODO Change to westhaven
 mark_Westhaven = {name:"Westhaven", lat:"36°49.90S", long:"174°44.91E"}
 mark_Bayswater = {name:"Bayswater", lat:"36°49.78S", long:"174°45.77E"}
 mark_StanleyPoint = {name:"Stanley Point", lat:"36°49.85S", long:"174°46.59E"}
@@ -37,29 +40,39 @@ mark_BrownsIslandBeacon = {name:"Browns Island Beacon", lat:"36°49.438S", long:
 //courses
 //TODO add name and direction (cw, ccw) propertis to course object (make dictionary list), distance? (calculate?)
 courses = {
-    4: [start, mark_Iliomama, mark_Motuihegreen, mark_Motukorea, finish],
-    5: [start, mark_Iliomama, mark_Motuihegreen, mark_Motukorea, mark_Iliomama, mark_Motuihegreen, mark_Motukorea, finish],
-    6: [start, mark_Motukorea, mark_Iliomama, mark_Motuihegreen, mark_Navybuoy, mark_BrownsIslandBeacon, mark_Motukorea, finish],
-    7: [start, mark_Motukorea, mark_BrownsIslandBeacon, mark_Navybuoy, mark_Motuihegreen, mark_Iliomama, mark_Motukorea, finish],
-    8: [start, mark_Motukorea, mark_Rangitoto, mark_Iliomama, mark_NorthHead, mark_Motukorea, finish],
-    9: [start, mark_Motukorea, mark_NorthHead, mark_Iliomama, mark_Rangitoto, mark_Motukorea, finish],
-    10: [start, mark_Motukorea, mark_BrownsIslandBeacon, mark_Navybuoy, mark_BrownsIslandBeacon, mark_Motukorea, mark_NorthernLeading, mark_Motukorea, finish],
-    11: [start, mark_NorthernLeading, mark_Rangitoto, mark_RoughRock, mark_NorthernLeading, mark_Rangitoto, mark_Motukorea, finish],
-    12: [start, mark_Motukorea, mark_RoughRock, mark_SaltWorks, mark_NarrowNeck, mark_Motukorea, finish],
-    13: [start, mark_Rangitoto, mark_BrownsIslandBeacon, mark_Navybuoy, mark_BrownsIslandBeacon, mark_Iliomama, mark_Motukorea, finish],
-    14: [start, mark_Motukorea, mark_SaltWorks, mark_NorthernLeading, mark_Iliomama, mark_Motukorea, mark_Iliomama, mark_Motukorea, finish],
-    15: [start, mark_Motukorea, mark_Iliomama, mark_Rangitoto, mark_Motukorea, finish],
-    16: [start, mark_Motukorea, mark_Iliomama, mark_Motuihegreen, mark_Navybuoy, mark_BrownsIslandBeacon, mark_Iliomama, mark_Motukorea, finish],
-    17: [start, mark_Motukorea, mark_Iliomama, mark_BrownsIslandBeacon, mark_Navybuoy, mark_BrownsIslandBeacon, mark_Iliomama, mark_Motukorea, finish],
-    18: [start, mark_Motukorea, mark_Iliomama, mark_Rangitoto, mark_Motukorea, mark_Iliomama, mark_Rangitoto, mark_Motukorea, finish],
-    19: [start, mark_Motukorea, mark_Rangitoto, mark_Iliomama, mark_Motukorea, mark_Rangitoto, mark_Iliomama, mark_Motukorea, finish],
-    20: [start, mark_Motukorea, mark_Motuihegreen, mark_Navybuoy, mark_BrownsIslandBeacon, mark_Iliomama, mark_NorthHead, mark_Rangitoto, mark_Motukorea, mark_Iliomama, mark_Motukorea, finish],
-    21: [start, mark_Motukorea, mark_McKenzie, mark_NorthHead, mark_McKenzie, mark_Motukorea, finish],
-    22: [start, mark_Motukorea, mark_Iliomama, mark_Motuihegreen, mark_Navybuoy, mark_BrownsIslandBeacon, mark_Motukorea, mark_Iliomama, mark_Rangitoto, mark_Motukorea, finish],
-    23: [start, mark_Motukorea, mark_BrownsIslandBeacon, mark_Navybuoy, mark_Motuihegreen, mark_Iliomama, mark_Motukorea, mark_Rangitoto, mark_Iliomama, mark_Motukorea, finish],
-    24: [start, mark_Motukorea, mark_Rangitoto, mark_Iliomama, mark_NorthHead, mark_Motuihegreen, mark_Rangitoto, mark_Iliomama, mark_Motukorea, finish],
-    25: [start, mark_Motukorea, mark_NorthHead, mark_Iliomama, mark_Rangitoto, mark_Motukorea, mark_Iliomama, mark_Rangitoto, mark_Motukorea, finish],
-    // 26: [start, mark_BrownsIslandBeacon, ((round Motuihe Is.)), finish] // TODO not sure how to map this
+    bbyc: {
+        4: [start, mark_Iliomama, mark_Motuihegreen, mark_Motukorea, finish_bbyc],
+        5: [start, mark_Iliomama, mark_Motuihegreen, mark_Motukorea, mark_Iliomama, mark_Motuihegreen, mark_Motukorea, finish_bbyc],
+        6: [start, mark_Motukorea, mark_Iliomama, mark_Motuihegreen, mark_Navybuoy, mark_BrownsIslandBeacon, mark_Motukorea, finish_bbyc],
+        7: [start, mark_Motukorea, mark_BrownsIslandBeacon, mark_Navybuoy, mark_Motuihegreen, mark_Iliomama, mark_Motukorea, finish_bbyc],
+        8: [start, mark_Motukorea, mark_Rangitoto, mark_Iliomama, mark_NorthHead, mark_Motukorea, finish_bbyc],
+        9: [start, mark_Motukorea, mark_NorthHead, mark_Iliomama, mark_Rangitoto, mark_Motukorea, finish_bbyc],
+        10: [start, mark_Motukorea, mark_BrownsIslandBeacon, mark_Navybuoy, mark_BrownsIslandBeacon, mark_Motukorea, mark_NorthernLeading, mark_Motukorea, finish_bbyc],
+        11: [start, mark_NorthernLeading, mark_Rangitoto, mark_RoughRock, mark_NorthernLeading, mark_Rangitoto, mark_Motukorea, finish_bbyc],
+        12: [start, mark_Motukorea, mark_RoughRock, mark_SaltWorks, mark_NarrowNeck, mark_Motukorea, finish_bbyc],
+        13: [start, mark_Rangitoto, mark_BrownsIslandBeacon, mark_Navybuoy, mark_BrownsIslandBeacon, mark_Iliomama, mark_Motukorea, finish_bbyc],
+        14: [start, mark_Motukorea, mark_SaltWorks, mark_NorthernLeading, mark_Iliomama, mark_Motukorea, mark_Iliomama, mark_Motukorea, finish_bbyc],
+        15: [start, mark_Motukorea, mark_Iliomama, mark_Rangitoto, mark_Motukorea, finish_bbyc],
+        16: [start, mark_Motukorea, mark_Iliomama, mark_Motuihegreen, mark_Navybuoy, mark_BrownsIslandBeacon, mark_Iliomama, mark_Motukorea, finish_bbyc],
+        17: [start, mark_Motukorea, mark_Iliomama, mark_BrownsIslandBeacon, mark_Navybuoy, mark_BrownsIslandBeacon, mark_Iliomama, mark_Motukorea, finish_bbyc],
+        18: [start, mark_Motukorea, mark_Iliomama, mark_Rangitoto, mark_Motukorea, mark_Iliomama, mark_Rangitoto, mark_Motukorea, finish_bbyc],
+        19: [start, mark_Motukorea, mark_Rangitoto, mark_Iliomama, mark_Motukorea, mark_Rangitoto, mark_Iliomama, mark_Motukorea, finish_bbyc],
+        20: [start, mark_Motukorea, mark_Motuihegreen, mark_Navybuoy, mark_BrownsIslandBeacon, mark_Iliomama, mark_NorthHead, mark_Rangitoto, mark_Motukorea, mark_Iliomama, mark_Motukorea, finish_bbyc],
+        21: [start, mark_Motukorea, mark_McKenzie, mark_NorthHead, mark_McKenzie, mark_Motukorea, finish_bbyc],
+        22: [start, mark_Motukorea, mark_Iliomama, mark_Motuihegreen, mark_Navybuoy, mark_BrownsIslandBeacon, mark_Motukorea, mark_Iliomama, mark_Rangitoto, mark_Motukorea, finish_bbyc],
+        23: [start, mark_Motukorea, mark_BrownsIslandBeacon, mark_Navybuoy, mark_Motuihegreen, mark_Iliomama, mark_Motukorea, mark_Rangitoto, mark_Iliomama, mark_Motukorea, finish_bbyc],
+        24: [start, mark_Motukorea, mark_Rangitoto, mark_Iliomama, mark_NorthHead, mark_Motuihegreen, mark_Rangitoto, mark_Iliomama, mark_Motukorea, finish_bbyc],
+        25: [start, mark_Motukorea, mark_NorthHead, mark_Iliomama, mark_Rangitoto, mark_Motukorea, mark_Iliomama, mark_Rangitoto, mark_Motukorea, finish_bbyc],
+        // 26: [start, mark_BrownsIslandBeacon, ((round Motuihe Is.)), finish_bbyc] // TODO not sure how to map this
+    },
+    rnzys: {
+        1: [start, mark_StanleyPoint, mark_Westhaven, mark_Bayswater, mark_Westhaven, mark_Bayswater, finish_rnzys],
+        2: [start, mark_Bayswater, mark_Westhaven, mark_Chelsea, mark_Bayswater, finish_rnzys],
+        3: [start, mark_Resolution, mark_StanleyPoint, mark_Bayswater, finish_rnzys],
+        4: [start, mark_Bayswater, mark_StanleyPoint, mark_Resolution, finish_rnzys],
+        5: [start, mark_Resolution, mark_TorpedoBay, finish_rnzys],
+        6: [start, mark_TorpedoBay, mark_Resolution, finish_rnzys]
+    }
 }
 
 
@@ -157,30 +170,44 @@ function wind_angle(course, wind_direction) {
         angle_wind = wind_direction - course_angles[i].angle_next_mark
         angle_wind = (angle_wind + 360) % 180;
         course_angles[i].wind_next_mark = angle_wind
-        leg = course[i].name.concat(' to ', course[i+1].name, ' ', Math.round(course_angles[i].angle_next_mark), '°. TWA: ', Math.round(course_angles[i].wind_next_mark), '°<br>')
+        leg = course[i].name.concat(' to ', course[i+1].name, ' ', Math.round(course_angles[i].angle_next_mark), '°T. TWA: ', Math.round(course_angles[i].wind_next_mark), '°<br>')
         document.getElementById("course-description").innerHTML += leg
     }
 }
 
 //Stuff on the webpage
-function courseList(){
-    select = document.getElementById("course-number")
+function clubList() {
+    select_club = document.getElementById("club")
     for (const [key, value] of Object.entries(courses)) {
-        select.options[select.options.length] = new Option(key, key)
+        select_club.options[select_club.options.length] = new Option(key.toUpperCase(), key)
+    }
+    courseList()
+}
+window.onload = clubList
+
+function courseList(){
+    club = document.getElementById("club")
+    course_number = document.getElementById("course-number")
+    club_courses = courses[club.value]
+    course_number.length = 0
+
+    for (const [key, value] of Object.entries(club_courses)) {
+        course_number.options[course_number.length] = new Option(key, key)
     }
 }
-window.onload = courseList
 
 
 function get_course() {
+    club = document.getElementById("club").value
     course_num = document.getElementById("course-number").value
     wind_dir = document.getElementById("wind-direction").value
-    unique_markers = get_unique_markers(courses[course_num]) //gets unique markers and converts GPS coordinates to decimal degrees
+    unique_markers = get_unique_markers(courses[club][course_num]) //gets unique markers and converts GPS coordinates to decimal degrees
     document.getElementById("course-description").innerHTML = "Course " + course_num + ":<br>"
-    wind_angle(courses[course_num], wind_dir)
+    wind_angle(courses[club][course_num], wind_dir)
 
     //alert(data)
 }
+
 
 
 //not sure if will want/need this

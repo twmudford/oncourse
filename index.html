@@ -5,12 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>onCourse</title>
     <script src="index.js"></script>
+    <link rel="stylesheet" href="index.css">
 </head>
 <body>
     <h1>onCourse</h1>
     <form>
-        <label for="course-number">Course Number: </label><select id="course-number" name="course-number"></select><br>
-        <label for="wind-direction">Wind Direction: </label><input id="wind-direction" type="number" value="0" min="0" max="360" name="wind-direction"></input><br>
+        <label for="club">Club: </label>
+        <select id="club" name="club" onchange="courseList()"></select><br>
+        <label id="course-number-label" for="course-number">Course Number: </label>
+        <select id="course-number" name="course-number"></select><br>
+        <label for="wind-direction">Wind Direction: </label>
+        <input id="wind-direction" type="number" value="0" min="0" max="360" name="wind-direction"></input><br>
+        
+
+        <!-- hiding this as not implemented yet and idk if I will end up using it
+        <label for="north_true">True North</label>
+        <input id="compass-north" type="radio" name="compass-north" value="north_true" checked></input>
+        
+        <input id="" type="radio" name="compass-north" value="north_magnetic"></input>
+        <label for="north_magnetic">Magnetic North</label>
+        <br>
+        -->
+
+        <!--
+            add sliders for magnetic/true north
+            maybe sliders for feature toggles (settings menu??)
+        This slider does nothing
+        <br>
+        <label class="switch">
+            <input type="checkbox">
+            <span class="slider round"></span>
+        </label>
+        -->
+
         <button id="calculate" type="button" onclick="get_course()">Get Course</button>
     </form>
     <p id="course-description"></p>
