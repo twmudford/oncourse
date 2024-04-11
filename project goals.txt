@@ -12,3 +12,10 @@ Course maps
 Buoy names/numbers, locations/GPS positions
 
 one option for data input could be to take a csv or similar with course data (makes it transferrable)
+
+
+GPS integration (ping start)
+manual gps entry
+
+
+for rnzys, add division select and populate courses depending on division
