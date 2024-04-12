@@ -1691,13 +1691,12 @@ function get_unique_markers(course) {
         course_full.push(course[i].mark)
     }
     let unique_markers = [...new Set(course_full)];
-    console.log(unique_markers)
+
     for (let i = 0; i < unique_markers.length; i++) {
-        if (typeof (unique_markers[i].lat) != "number") {
-            convert_coordinates(unique_markers[i])
+        if (typeof (markers[unique_markers[i]].lat) != "number") {
+            convert_coordinates(markers[unique_markers[i]])
         }
     }
-    return unique_markers
 }
 
 
@@ -1742,24 +1741,30 @@ function find_angle(markA, markB) {
 
 function course_with_angles(course) {
     course_angles = []
-
     for (let i = 0; i < course.length - 1; i++) {
-        course_angles.push({ mark_name: course[i].name, coursemarker: course[i], angle_next_mark: find_angle(course[i], course[i + 1]) });
+        course_angles.push({ mark_name: markers[course[i].mark], coursemarker: course[i].mark, angle_next_mark: find_angle(markers[course[i].mark], markers[course[i + 1].mark]) });
     }
     return course_angles
 }
 
 
 function wind_angle(course, wind_direction) {
-    course_angles = course_with_angles(course)
+    course_angles = course_with_angles(course.course_route)
+    leg_start = markers[course.start].name.concat(' to ', markers[course.course_route[0].mark].name, '<br>')
+    document.getElementById("course-description").innerHTML += leg_start
 
     for (let i = 0; i < course_angles.length; i++) {
         angle_wind = wind_direction - course_angles[i].angle_next_mark
         angle_wind = (angle_wind + 360) % 180;
         course_angles[i].wind_next_mark = angle_wind
-        leg = course[i].name.concat(' to ', course[i + 1].name, ' ', Math.round(course_angles[i].angle_next_mark), '°T. TWA: ', Math.round(course_angles[i].wind_next_mark), '°<br>')
+        mark_name = markers[course.course_route[i].mark].name
+        next_mark_name = markers[course.course_route[i + 1].mark].name
+        leg = mark_name.concat(' to ', next_mark_name, ' ', Math.round(course_angles[i].angle_next_mark), '°T. TWA: ', Math.round(course_angles[i].wind_next_mark), '°<br>')
         document.getElementById("course-description").innerHTML += leg
     }
+
+    leg_finish = markers[course.course_route[course.course_route.length - 1].mark].name.concat(' to ', markers[course.finish].name, '<br>')
+    document.getElementById("course-description").innerHTML += leg_finish
 }
 
 //Stuff on the webpage
@@ -1788,8 +1793,7 @@ function get_course() {
     club = document.getElementById("club").value
     course_num = document.getElementById("course-number").value
     wind_dir = document.getElementById("wind-direction").value
-    unique_markers = get_unique_markers(courses[club][course_num].course_route) //gets unique markers and converts GPS coordinates to decimal degrees
-    console.log(unique_markers)
+    get_unique_markers(courses[club][course_num].course_route) //gets unique markers and converts GPS coordinates to decimal degrees
     document.getElementById("course-description").innerHTML = "Course " + course_num + ":<br>"
     wind_angle(courses[club][course_num], wind_dir)
 
