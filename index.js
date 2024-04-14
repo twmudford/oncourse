@@ -1750,8 +1750,14 @@ function course_with_angles(course) {
 
 function wind_angle(course, wind_direction) {
     course_angles = course_with_angles(course.course_route)
+    // Generate course description HTML output
+    course_description_section = document.getElementById("course-description")
+    course_description_heading = document.createElement("h3")
+    course_description_heading.innerHTML += "Course " + course_num
+    course_description_p = document.createElement("p")
+
     leg_start = markers[course.start].name + '<br>'
-    document.getElementById("course-description").innerHTML += leg_start
+    course_description_p.innerHTML += leg_start
 
     for (let i = 0; i < course_angles.length; i++) {
         angle_wind = wind_direction - course_angles[i].angle_next_mark
@@ -1760,11 +1766,12 @@ function wind_angle(course, wind_direction) {
         mark_name = markers[course.course_route[i].mark].name
         next_mark_name = markers[course.course_route[i + 1].mark].name
         leg = mark_name.concat('<br>', Math.round(course_angles[i].angle_next_mark), '°T. TWA: ', Math.round(course_angles[i].wind_next_mark), '°<br>')
-        document.getElementById("course-description").innerHTML += leg
+        course_description_p.innerHTML += leg
     }
 
-    leg_finish = markers[course.finish].name + '<br>'
-    document.getElementById("course-description").innerHTML += leg_finish
+    leg_finish = next_mark_name.concat('<br>',markers[course.finish].name, '<br>')
+    course_description_p.innerHTML += leg_finish
+    course_description_section.replaceChildren(course_description_heading, course_description_p)
 }
 
 //Stuff on the webpage
@@ -1794,9 +1801,7 @@ function get_course() {
     course_num = document.getElementById("course-number").value
     wind_dir = document.getElementById("wind-direction").value
     get_unique_markers(courses[club][course_num].course_route) //gets unique markers and converts GPS coordinates to decimal degrees
-    document.getElementById("course-description").innerHTML = "Course " + course_num + ":<br>"
-    wind_angle(courses[club][course_num], wind_dir)
-
+    wind_angle(courses[club][course_num], wind_dir, course_num)
 }
 
 

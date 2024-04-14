@@ -23,28 +23,38 @@ h6 {
 
 h1 {
     font-size: 12vw;
+    margin-bottom: 1vh;
+}
+
+h3 {
+    font-size: 10vw;
+    margin: 0;
+    margin-top: 3vh;
 }
 
 label {
-    font-size: 8vw;
+    font-size: 10vw;
 }
 
 select {
-    font-size: 8vw;
+    font-size: 10vw;
     width: 80vw;
+    margin-bottom: 2vh;
 }
 
 input {
-    font-size: 8vw;
+    font-size: 10vw;
+    margin-bottom: 2vh;
 }
 
 button {
-    font-size: 8vw;
+    font-size: 10vw;
     width: 80vw;
 }
 
 p {
-    font-size: 8vw;
+    font-size: 9vw;
+    margin: 0;
 }
 
 /* The switch - the box around the slider */
