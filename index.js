@@ -1750,7 +1750,7 @@ function course_with_angles(course) {
 
 function wind_angle(course, wind_direction) {
     course_angles = course_with_angles(course.course_route)
-    leg_start = markers[course.start].name.concat(' to ', markers[course.course_route[0].mark].name, '<br>')
+    leg_start = markers[course.start].name + '<br>'
     document.getElementById("course-description").innerHTML += leg_start
 
     for (let i = 0; i < course_angles.length; i++) {
@@ -1759,11 +1759,11 @@ function wind_angle(course, wind_direction) {
         course_angles[i].wind_next_mark = angle_wind
         mark_name = markers[course.course_route[i].mark].name
         next_mark_name = markers[course.course_route[i + 1].mark].name
-        leg = mark_name.concat(' to ', next_mark_name, ' ', Math.round(course_angles[i].angle_next_mark), '°T. TWA: ', Math.round(course_angles[i].wind_next_mark), '°<br>')
+        leg = mark_name.concat('<br>', Math.round(course_angles[i].angle_next_mark), '°T. TWA: ', Math.round(course_angles[i].wind_next_mark), '°<br>')
         document.getElementById("course-description").innerHTML += leg
     }
 
-    leg_finish = markers[course.course_route[course.course_route.length - 1].mark].name.concat(' to ', markers[course.finish].name, '<br>')
+    leg_finish = markers[course.finish].name + '<br>'
     document.getElementById("course-description").innerHTML += leg_finish
 }
 

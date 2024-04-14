@@ -1,4 +1,4 @@
-export const markers {
+{
     "start": {
         "name": "Start",
         "lat": "36°49.479S",
