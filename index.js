@@ -1782,7 +1782,7 @@ function wind_angle(course, wind_direction) {
                 }
                 else if (!document.getElementById("flag").checked)
                     mark_rounding_class = "mark_rounding_port"
-                break    
+                break
             default:
                 mark_rounding_class = "None"
         }
@@ -1840,5 +1840,21 @@ function get_course() {
 
 
 function mytest() {
-    console.log(document.getElementById("flag").checked)
+    const x = document.getElementById("demo");
+
+    function getLocation() {
+        console.log(navigator.geolocation)
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition);
+        } else {
+            x.innerHTML = "Geolocation is not supported by this browser.";
+        }
+    }
+
+    function showPosition(position) {
+        x.innerHTML = "Latitude: " + position.coords.latitude +
+            "<br>Longitude: " + position.coords.longitude;
+    }
+
 }
+mytest()
