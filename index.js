@@ -1777,15 +1777,17 @@ function wind_angle(course, wind_direction) {
                 mark_rounding_class = "mark_rounding_stbd"
                 break
             case "flag":
-                if (document.getElementById("flag").checked) {
+                if (document.getElementById("boat_flag_port").checked) {
+                    mark_rounding_class = "mark_rounding_port"
+                }
+                else {
                     mark_rounding_class = "mark_rounding_stbd"
                 }
-                else if (!document.getElementById("flag").checked)
-                    mark_rounding_class = "mark_rounding_port"
                 break
             default:
                 mark_rounding_class = "None"
         }
+
         course_leg = document.createElement("p")
         course_leg.setAttribute("class", mark_rounding_class)
         course_leg.innerHTML = mark_name + '<br>'
@@ -1839,19 +1841,23 @@ function get_course() {
 }
 
 
+function testFunc() {
+    myel = document.getElementById("timtest")
+    console.log(myel)
+    getLocation()
 
-const x = document.getElementById("demo");
-
-function getLocation() {
-    if (navigator.geolocation) {
-        navigator.geolocation.watchPosition(showPosition);
-    } else {
-        x.innerHTML = "Geolocation is not supported by this browser.";
+    function getLocation() {
+        if (navigator.geolocation) {
+            navigator.geolocation.watchPosition(showPosition);
+        } else {
+            myel.innerHTML = "Geolocation is not supported by this browser.";
+        }
     }
-}
 
-function showPosition(position) {
-    x.innerHTML = "Latitude: " + position.coords.latitude +
-        "<br>Longitude: " + position.coords.longitude;
-}
+    function showPosition(position) {
+        console.log(myel)
+        myel.innerHTML = "Latitude: " + position.coords.latitude +
+            "<br>Longitude: " + position.coords.longitude;
+    }
 
+}
