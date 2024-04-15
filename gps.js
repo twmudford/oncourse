@@ -13,7 +13,7 @@ function testFunc() {
 
     function showPosition(position) {
         console.log(position)
-        myel.innerHTML = "Latitude: " + position.coords.latitude + "<br>Longitude: " + position.coords.longitude + "<br>Accuracy: " + position.coords.accuracy + "<br>Heading: " + position.coords.heading + "<br>Speed: " + position.coords.speed + "<br>Timestamp: " + Date(position.timestamp)
+        myel.innerHTML = "Latitude: " + position.coords.latitude + "°<br>Longitude: " + position.coords.longitude + "°<br>Accuracy: " + position.coords.accuracy + "m<br>Heading: " + position.coords.heading + "°<br>Speed: " + position.coords.speed/1.94384449 + "kts<br>Timestamp: " + Date(position.timestamp)
 
 }
     
