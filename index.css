@@ -4,10 +4,6 @@
     src: url(fonts/helvetica-now-font-family-1713060452-0/helveticanowtext-black-demo.ttf);
 }
 
-body {
-    width: 100vw;
-}
-
 h1,
 h2,
 h3,
@@ -55,6 +51,18 @@ button {
 p {
     font-size: 9vw;
     margin: 0;
+}
+
+
+.mark_rounding_port {
+    color: red;
+}
+
+.mark_rounding_stbd {
+    color: green;
+}
+.mark_rounding_flag{
+    color: blue;
 }
 
 /* The switch - the box around the slider */

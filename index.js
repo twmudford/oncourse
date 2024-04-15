@@ -1756,8 +1756,9 @@ function wind_angle(course, wind_direction) {
     course_description_heading.innerHTML += "Course " + course_num
     course_description_p = document.createElement("p")
 
-    leg_start = markers[course.start].name + '<br>'
-    course_description_p.innerHTML += leg_start
+    course_leg = document.createElement("p")
+    course_leg.innerHTML = markers[course.start].name + '<br>'
+    course_description_p.replaceChildren(course_leg)
 
     for (let i = 0; i < course_angles.length; i++) {
         angle_wind = wind_direction - course_angles[i].angle_next_mark
@@ -1765,12 +1766,41 @@ function wind_angle(course, wind_direction) {
         course_angles[i].wind_next_mark = angle_wind
         mark_name = markers[course.course_route[i].mark].name
         next_mark_name = markers[course.course_route[i + 1].mark].name
-        leg = mark_name.concat('<br>', Math.round(course_angles[i].angle_next_mark), '°T. TWA: ', Math.round(course_angles[i].wind_next_mark), '°<br>')
-        course_description_p.innerHTML += leg
+        rounding = course.course_route[i].rounding
+
+        next_mark_rounding = course.course_route[i + 1].rounding
+        switch (rounding) {
+            case "port":
+                mark_rounding_class = "mark_rounding_port"
+                break
+            case "stbd":
+                mark_rounding_class = "mark_rounding_stbd"
+                break
+            case "flag":
+                mark_rounding_class = "mark_rounding_flag"
+                break    
+            default:
+                mark_rounding_class = "None"
+        }
+        course_leg = document.createElement("p")
+        course_leg.setAttribute("class", mark_rounding_class)
+        course_leg.innerHTML = mark_name + '<br>'
+        course_description_p.appendChild(course_leg)
+        course_leg_angles = document.createElement("p")
+        //course_leg_angles.setAttribute("class", [classname])
+        course_leg_angles.innerHTML = Math.round(course_angles[i].angle_next_mark) + '°T. TWA: ' + Math.round(course_angles[i].wind_next_mark) + '°'
+        course_description_p.appendChild(course_leg_angles)
     }
 
-    leg_finish = next_mark_name.concat('<br>',markers[course.finish].name, '<br>')
-    course_description_p.innerHTML += leg_finish
+    course_leg = document.createElement("p")
+    course_leg.innerHTML = next_mark_name + '<br>'
+    course_leg.setAttribute("class", mark_rounding_class)
+    course_description_p.appendChild(course_leg)
+
+    course_leg = document.createElement("p")
+    course_leg.innerHTML = markers[course.finish].name, '<br>'
+    course_description_p.appendChild(course_leg)
+
     course_description_section.replaceChildren(course_description_heading, course_description_p)
 }
 
