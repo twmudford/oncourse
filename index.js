@@ -1839,25 +1839,3 @@ function get_course() {
     get_unique_markers(courses[club][course_num].course_route) //gets unique markers and converts GPS coordinates to decimal degrees
     wind_angle(courses[club][course_num], wind_dir, course_num)
 }
-
-
-function testFunc() {
-    myel = document.getElementById("timtest")
-    console.log(myel)
-    getLocation()
-
-    function getLocation() {
-        if (navigator.geolocation) {
-            navigator.geolocation.watchPosition(showPosition);
-        } else {
-            myel.innerHTML = "Geolocation is not supported by this browser.";
-        }
-    }
-
-    function showPosition(position) {
-        console.log(myel)
-        myel.innerHTML = "Latitude: " + position.coords.latitude +
-            "<br>Longitude: " + position.coords.longitude;
-    }
-
-}
