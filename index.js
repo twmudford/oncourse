@@ -1777,7 +1777,11 @@ function wind_angle(course, wind_direction) {
                 mark_rounding_class = "mark_rounding_stbd"
                 break
             case "flag":
-                mark_rounding_class = "mark_rounding_flag"
+                if (document.getElementById("flag").checked) {
+                    mark_rounding_class = "mark_rounding_stbd"
+                }
+                else if (!document.getElementById("flag").checked)
+                    mark_rounding_class = "mark_rounding_port"
                 break    
             default:
                 mark_rounding_class = "None"
@@ -1835,4 +1839,6 @@ function get_course() {
 }
 
 
-
+function mytest() {
+    console.log(document.getElementById("flag").checked)
+}
