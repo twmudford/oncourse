@@ -1754,6 +1754,42 @@ function getFlagColour() {
 }
 
 
+function setCommitteeBoatDisplay(first_mark_rounding) {
+    boat = document.getElementById("committee-boat")
+    if (first_mark_rounding == "flag") {
+        boat.style.display = "inline"
+    }
+    else {
+        boat.style.display = "none"
+    }
+}
+
+function setMarkRoundingTextColour() {
+    switch (rounding) {
+        case "port":
+            mark_rounding_class = "mark_rounding_port"
+            break
+        case "stbd":
+            mark_rounding_class = "mark_rounding_stbd"
+            break
+        case "flag":
+            switch (getFlagColour()) {
+                case "port":
+                    mark_rounding_class = "mark_rounding_port"
+                    break
+                case "stbd":
+                    mark_rounding_class = "mark_rounding_stbd"
+                    break
+                default:
+                    mark_rounding_class = "None"
+            }
+            break
+        default:
+
+            mark_rounding_class = "None"
+    }
+}
+
 function wind_angle(course, wind_direction) {
     course_angles = course_with_angles(course.course_route)
     // Generate course description HTML output
@@ -1766,6 +1802,9 @@ function wind_angle(course, wind_direction) {
     course_leg.innerHTML = markers[course.start].name + '<br>'
     course_description_p.replaceChildren(course_leg)
 
+    first_mark_rounding = course.course_route[0].rounding
+    setCommitteeBoatDisplay(first_mark_rounding)
+
     for (let i = 0; i < course_angles.length; i++) {
         angle_wind = wind_direction - course_angles[i].angle_next_mark
         angle_wind = (angle_wind + 360) % 180;
@@ -1773,32 +1812,7 @@ function wind_angle(course, wind_direction) {
         mark_name = markers[course.course_route[i].mark].name
         next_mark_name = markers[course.course_route[i + 1].mark].name
         rounding = course.course_route[i].rounding
-
-        next_mark_rounding = course.course_route[i + 1].rounding
-        switch (rounding) {
-            case "port":
-                mark_rounding_class = "mark_rounding_port"
-                break
-            case "stbd":
-                mark_rounding_class = "mark_rounding_stbd"
-                break
-            case "flag":
-                boat = document.querySelector("#committee-boat")
-                boat.style.display = "inline";
-                switch (getFlagColour()) {
-                case "port":
-                    mark_rounding_class = "mark_rounding_port"
-                break
-                case "stbd":
-                    mark_rounding_class = "mark_rounding_stbd"
-                break
-                default:
-                    mark_rounding_class = "None"
-                }
-                break
-            default:
-                mark_rounding_class = "None"
-        }
+        setMarkRoundingTextColour()
 
         course_leg = document.createElement("p")
         course_leg.setAttribute("class", mark_rounding_class)
