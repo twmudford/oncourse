@@ -19,7 +19,7 @@
         <label for="club">Club: </label><br>
         <select id="club" name="club" onchange="courseList()"></select><br>
         <label id="course-number-label" for="course-number">Course Number: </label><br>
-        <select id="course-number" name="course-number"></select><br>
+        <select id="course-number" name="course-number" onchange="get_course"></select><br>
         <label for="wind-direction">Wind Direction: </label>
         <input id="wind-direction" type="number" value="0" min="0" max="360" name="wind-direction"></input><br>
 
@@ -38,14 +38,21 @@
             maybe sliders for feature toggles (settings menu??)
         -->
 
-
-        <label id="boat_flag" for="boat_flag">Committee Flag</label><br>
-            <input id="boat_flag_port" type="radio" name="boat_flag" value="port" onchange="get_course()"></input>
-            <input id="boat_flag_stbd" type="radio" name="boat_flag" value="stbd" onchange="get_course()"></input>
-
-
-
-       <br>
+<div id="committee-boat">
+    <label for="committee-flag">Committee Flag:</label><br>
+    <br>
+    <div class="committee-wrapper">
+        <label class="container red-flag">
+            <input type="radio" checked="checked" name="committee-flag" value="port" onchange="get_course()">
+            <span class="checkmark">Red</span>
+        </label>
+        <label class="container green-flag">
+            <input type="radio" name="committee-flag" value="stbd" onchange="get_course()">
+            <span class="checkmark">Green</span>
+        </label>
+    </div>
+</div>
+        <br>
 
 
         <button id="calculate" type="button" onclick="get_course()">Get Course</button>

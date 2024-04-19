@@ -1748,6 +1748,12 @@ function course_with_angles(course) {
 }
 
 
+function getFlagColour() {
+    committee_boat_flag_colour = document.querySelector('input[name="committee-flag"]:checked').value
+    return committee_boat_flag_colour
+}
+
+
 function wind_angle(course, wind_direction) {
     course_angles = course_with_angles(course.course_route)
     // Generate course description HTML output
@@ -1777,11 +1783,17 @@ function wind_angle(course, wind_direction) {
                 mark_rounding_class = "mark_rounding_stbd"
                 break
             case "flag":
-                if (document.getElementById("boat_flag_port").checked) {
+                boat = document.querySelector("#committee-boat")
+                boat.style.display = "inline";
+                switch (getFlagColour()) {
+                case "port":
                     mark_rounding_class = "mark_rounding_port"
-                }
-                else {
+                break
+                case "stbd":
                     mark_rounding_class = "mark_rounding_stbd"
+                break
+                default:
+                    mark_rounding_class = "None"
                 }
                 break
             default:
