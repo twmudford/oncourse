@@ -4,6 +4,11 @@
     src: url(fonts/helvetica-now-font-family-1713060452-0/helveticanowtext-black-demo.ttf);
 }
 
+body {
+    margin: 0 5%;
+    background-color: rgb(228, 227, 227);
+}
+
 h1,
 h2,
 h3,
@@ -20,17 +25,12 @@ h6 {
 h1 {
     font-size: 11vw;
     margin-bottom: 1vh;
-    margin-left: 5%;
 }
 
 h3 {
     font-size: 9vw;
     margin: 0;
     margin-top: 3vh;
-}
-
-form {
-    margin: 0 5%;
 }
 
 label {
@@ -112,27 +112,31 @@ p {
 
 .red-flag {
     background: darkred;
-    color: white;
+    color: grey;
 }
 
 .green-flag {
     background: #045D2B;
-    color: white;
+    color: grey;
 }
 
 .red-flag input:checked ~ .checkmark {
     background: red;
+    border: darkred 5px solid;
+    color: white;
 }
 
 .green-flag input:checked ~ .checkmark {
     background-color: #06C85C;
+    border: darkgreen 5px solid;
+    color: white;
    
 }
 
 .container input:checked ~ .checkmark {
-    border: lightgray 3px solid;
-    margin: -3px;
+    margin: -5px;
 }
+
 
 #committee-boat {
     display: none;
