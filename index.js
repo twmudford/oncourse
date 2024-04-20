@@ -1812,9 +1812,14 @@ function wind_angle(club, course, wind_direction, course_num) {
     course_description_heading.innerHTML += club.toUpperCase() + " Course " + course_num
     course_description_p = document.createElement("p")
 
-    course_leg = document.createElement("p")
+    course_leg = document.createElement("strong")
     course_leg.innerHTML = markers[course.start].name + '<br>'
     course_description_p.replaceChildren(course_leg)
+
+    // TODO find a way to ping start or start area to then get heading to first mark
+    first_leg = document.createElement("p")
+    first_leg.innerHTML = "Variable"
+    course_description_p.appendChild(first_leg)
 
     first_mark_rounding = course.course_route[0].rounding
     setCommitteeBoatDisplay(first_mark_rounding)
@@ -1833,15 +1838,12 @@ function wind_angle(club, course, wind_direction, course_num) {
         course_leg.innerHTML = mark_name + '<br>'
         course_description_p.appendChild(course_leg)
         course_leg_angles = document.createElement("p")
-        //course_leg_angles.setAttribute("class", [classname])
         if (get_north_direction() == "magnetic") {
             course_leg_angles.innerHTML = Math.round(course_angles[i].angle_next_mark) + '°M. TWA: ' + Math.round(course_angles[i].wind_next_mark) + '°'
         }
         else {
             course_leg_angles.innerHTML = Math.round(course_angles[i].angle_next_mark) + '°T. TWA: ' + Math.round(course_angles[i].wind_next_mark) + '°'
         }
-
-
         course_description_p.appendChild(course_leg_angles)
     }
 
@@ -1850,7 +1852,12 @@ function wind_angle(club, course, wind_direction, course_num) {
     course_leg.setAttribute("class", mark_rounding_class)
     course_description_p.appendChild(course_leg)
 
-    course_leg = document.createElement("p")
+    // TODO: finish locations for BBYC and RNZYS are pretty consistemt, see if I can work out GPS cordiantes and thereby compass heading
+    last_leg = document.createElement("p")
+    last_leg.innerHTML = "Variable"
+    course_description_p.appendChild(last_leg)
+
+    course_leg = document.createElement("strong")
     course_leg.innerHTML = markers[course.finish].name, '<br>'
     course_description_p.appendChild(course_leg)
 
