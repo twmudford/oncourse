@@ -1735,7 +1735,21 @@ function find_angle(markA, markB) {
     angle_true = (angle_true + 360) % 360;
     angle_magnetic = angle_true - magnetic_declination_akl
     //TODO add mechanism (radio button?) for selecting true or mag north
-    return angle_true
+    committee_boat_flag_colour = document.querySelector('input[name="committee-flag"]:checked').value
+
+    if (get_north_direction() == "magnetic") {
+        angle = angle_magnetic
+    }
+    else {
+        angle = angle_true
+    }
+    return angle
+}
+
+
+function get_north_direction() {
+    north_direction = document.querySelector('input[name="north-direction"]:checked').value
+    return north_direction
 }
 
 
@@ -1790,12 +1804,12 @@ function setMarkRoundingTextColour() {
     }
 }
 
-function wind_angle(course, wind_direction) {
+function wind_angle(club, course, wind_direction, course_num) {
     course_angles = course_with_angles(course.course_route)
     // Generate course description HTML output
     course_description_section = document.getElementById("course-description")
     course_description_heading = document.createElement("h3")
-    course_description_heading.innerHTML += "Course " + course_num
+    course_description_heading.innerHTML += club.toUpperCase() + " Course " + course_num
     course_description_p = document.createElement("p")
 
     course_leg = document.createElement("p")
@@ -1820,7 +1834,14 @@ function wind_angle(course, wind_direction) {
         course_description_p.appendChild(course_leg)
         course_leg_angles = document.createElement("p")
         //course_leg_angles.setAttribute("class", [classname])
-        course_leg_angles.innerHTML = Math.round(course_angles[i].angle_next_mark) + '°T. TWA: ' + Math.round(course_angles[i].wind_next_mark) + '°'
+        if (get_north_direction() == "magnetic") {
+            course_leg_angles.innerHTML = Math.round(course_angles[i].angle_next_mark) + '°M. TWA: ' + Math.round(course_angles[i].wind_next_mark) + '°'
+        }
+        else {
+            course_leg_angles.innerHTML = Math.round(course_angles[i].angle_next_mark) + '°T. TWA: ' + Math.round(course_angles[i].wind_next_mark) + '°'
+        }
+
+
         course_description_p.appendChild(course_leg_angles)
     }
 
@@ -1862,6 +1883,9 @@ function get_course() {
     club = document.getElementById("club").value
     course_num = document.getElementById("course-number").value
     wind_dir = document.getElementById("wind-direction").value
+    if (get_north_direction()=="magnetic") {
+        wind_dir -= magnetic_declination_akl
+    }
     get_unique_markers(courses[club][course_num].course_route) //gets unique markers and converts GPS coordinates to decimal degrees
-    wind_angle(courses[club][course_num], wind_dir, course_num)
+    wind_angle(club, courses[club][course_num], wind_dir, course_num)
 }

@@ -15,49 +15,52 @@
 
 <body>
     <h1>onCourse</h1>
-    <form>
+    
         <label for="club">Club: </label><br>
         <select id="club" name="club" onchange="courseList()"></select><br>
         <label id="course-number-label" for="course-number">Course Number: </label><br>
         <select id="course-number" name="course-number" onchange="get_course()"></select><br>
         <label for="wind-direction">Wind Direction: </label>
-        <input id="wind-direction" type="number" value="0" min="0" max="360" name="wind-direction"></input><br>
-
-
-        <!-- hiding this as not implemented yet and idk if I will end up using it
-        <label for="north_true">True North</label>
-        <input id="compass-north" type="radio" name="compass-north" value="north_true" checked></input>
-        
-        <input id="" type="radio" name="compass-north" value="north_magnetic"></input>
-        <label for="north_magnetic">Magnetic North</label>
-        <br>
-        -->
-
+        <input id="wind-direction" type="number" value="0" min="0" max="360" name="wind-direction" onchange="get_course()"></input><br>
         <!--
-            add sliders for magnetic/true north
             maybe sliders for feature toggles (settings menu??)
         -->
-
-<div id="committee-boat">
-    <label for="committee-flag">Committee Flag:</label><br>
-    <br>
-    <div class="committee-wrapper">
-        <label class="container red-flag">
-            <input type="radio" checked="checked" name="committee-flag" value="port" onchange="get_course()">
-            <span class="checkmark">Red</span>
-        </label>
-        <label class="container green-flag">
-            <input type="radio" name="committee-flag" value="stbd" onchange="get_course()">
-            <span class="checkmark">Green</span>
-        </label>
-    </div>
-</div>
+        <div id="north">
+            <label for="north-direction">North:</label><br>
+            <br>
+            <div class="north-wrapper">
+                <label class="container north-true">
+                    <input type="radio" checked="checked" name="north-direction" value="true" onchange="get_course()">
+                    <span class="checkmark">True</span>
+                </label>
+                <label class="container north-magnetic">
+                    <input type="radio" name="north-direction" value="magnetic" onchange="get_course()">
+                    <span class="checkmark">Magnetic</span>
+                </label>
+            </div>
+        </div>
+        <br>
+        <div id="committee-boat">
+            <label for="committee-flag">Committee Flag:</label><br>
+            <br>
+            <div class="committee-wrapper">
+                <label class="container flag-red">
+                    <input type="radio" checked="checked" name="committee-flag" value="port" onchange="get_course()">
+                    <span class="checkmark">Red</span>
+                </label>
+                <label class="container flag-green">
+                    <input type="radio" name="committee-flag" value="stbd" onchange="get_course()">
+                    <span class="checkmark">Green</span>
+                </label>
+            </div>
+        </div>
         <br>
 
 
         <button id="calculate" type="button" onclick="get_course()">Get Course</button>
-    </form>
     <section id="course-description"></section>
+    <br>
+    <br>
 
 </body>
 

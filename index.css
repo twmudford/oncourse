@@ -55,7 +55,7 @@ button {
 
 p {
     font-size: 9vw;
-    margin: 0; 
+    margin: 0;
 }
 
 .mark_rounding_port {
@@ -65,8 +65,13 @@ p {
 .mark_rounding_stbd {
     color: green;
 }
-.mark_rounding_flag{
+
+.mark_rounding_flag {
     color: blue;
+}
+
+#committee-boat {
+    display: none;
 }
 
 /* The container */
@@ -79,64 +84,92 @@ p {
     border: 1px solid black;
     flex: 1 1 0px;
     height: 50px;
-  }
+}
 
-  .committee-wrapper {
+.committee-wrapper {
     display: flex;
     width: 80vw;
-  }
-  
-  /* Hide the browser's default radio button */
-  .container input {
+}
+
+/* Hide the browser's default radio button */
+.container input {
     position: relative;
     opacity: 0;
     cursor: pointer;
-    margin:0;
-    width:0;
+    margin: 0;
+    width: 0;
     height: 0;
     display: flex;
-  }
-  
-  /* Create a custom radio button */
-  .checkmark {
+}
+
+/* Create a custom radio button */
+.checkmark {
     position: relative;
-    left:0;
+    left: 0;
     top: 0;
     height: 100%;
-    display:flex;
+    display: flex;
     justify-content: center;
     align-items: center;
     align-content: center;
-  }
+}
 
-.red-flag {
+.flag-red {
     background: darkred;
     color: grey;
 }
 
-.green-flag {
+.flag-green {
     background: #045D2B;
     color: grey;
 }
 
-.red-flag input:checked ~ .checkmark {
+.flag-red input:checked~.checkmark {
     background: red;
     border: darkred 5px solid;
     color: white;
 }
 
-.green-flag input:checked ~ .checkmark {
+.flag-green input:checked~.checkmark {
     background-color: #06C85C;
     border: darkgreen 5px solid;
     color: white;
-   
+
 }
 
-.container input:checked ~ .checkmark {
+.container input:checked~.checkmark {
     margin: -5px;
 }
 
 
-#committee-boat {
-    display: none;
+
+.north-wrapper {
+    display: flex;
+    width: 80vw;
+}
+
+.north-true {
+    background: navy;
+    color: grey;
+}
+
+.north-magnetic {
+    background: navy;
+    color: grey;
+}
+
+.north-true input:checked~.checkmark {
+    background: blue;
+    border: navy 5px solid;
+    color: white;
+}
+
+.north-magnetic input:checked~.checkmark {
+    background-color: blue;
+    border: navy 5px solid;
+    color: white;
+}
+
+.container input:checked~.checkmark {
+    margin: -5px;
 }
