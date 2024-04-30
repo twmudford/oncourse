@@ -1502,8 +1502,8 @@ markers = {
     },
     "finish_bbyc": {
         "name": "Finish",
-        "lat": "36°50.536S",
-        "long": "174°52.625E"
+        "lat": "36°50.517S",
+        "long": "174°52.692E"
     },
     "finish_rnzys": {
         "name": "Finish",
@@ -1733,10 +1733,8 @@ function find_angle(markA, markB) {
     angle_true = Math.atan2(varX, varY);
     angle_true = radians_to_degrees(angle_true);
     angle_true = (angle_true + 360) % 360;
-    angle_magnetic = angle_true - magnetic_declination_akl
-    //TODO add mechanism (radio button?) for selecting true or mag north
-    committee_boat_flag_colour = document.querySelector('input[name="committee-flag"]:checked').value
 
+    angle_magnetic = angle_true - magnetic_declination_akl
     if (get_north_direction() == "magnetic") {
         angle = angle_magnetic
     }
@@ -1756,7 +1754,7 @@ function get_north_direction() {
 function course_with_angles(course) {
     course_angles = []
     for (let i = 0; i < course.length - 1; i++) {
-        course_angles.push({ mark_name: markers[course[i].mark], coursemarker: course[i].mark, angle_next_mark: find_angle(markers[course[i].mark], markers[course[i + 1].mark]) });
+        course_angles.push({ mark: markers[course[i].mark], coursemarker: course[i].mark, angle_next_mark: find_angle(markers[course[i].mark], markers[course[i + 1].mark]) });
     }
     return course_angles
 }
@@ -1781,18 +1779,18 @@ function setCommitteeBoatDisplay(first_mark_rounding) {
 function setMarkRoundingTextColour() {
     switch (rounding) {
         case "port":
-            mark_rounding_class = "mark_rounding_port"
+            mark_rounding_class = "port"
             break
         case "stbd":
-            mark_rounding_class = "mark_rounding_stbd"
+            mark_rounding_class = "stbd"
             break
         case "flag":
             switch (getFlagColour()) {
                 case "port":
-                    mark_rounding_class = "mark_rounding_port"
+                    mark_rounding_class = "port"
                     break
                 case "stbd":
-                    mark_rounding_class = "mark_rounding_stbd"
+                    mark_rounding_class = "stbd"
                     break
                 default:
                     mark_rounding_class = "None"
@@ -1802,6 +1800,16 @@ function setMarkRoundingTextColour() {
 
             mark_rounding_class = "None"
     }
+}
+
+function setWindAngleTextColour(wind_angle) {
+    if (wind_angle < 0) {
+        wind_angle_text_colour = "port"
+    }
+    else {
+        wind_angle_text_colour = "stbd"
+    }
+    return wind_angle_text_colour
 }
 
 function wind_angle(club, course, wind_direction, course_num) {
@@ -1826,8 +1834,19 @@ function wind_angle(club, course, wind_direction, course_num) {
 
     for (let i = 0; i < course_angles.length; i++) {
         angle_wind = wind_direction - course_angles[i].angle_next_mark
-        angle_wind = (angle_wind + 360) % 180;
-        course_angles[i].wind_next_mark = angle_wind
+
+        if (angle_wind > 180) {
+            angle_wind -= 360
+        }
+        else if (angle_wind < -180) {
+            angle_wind += 360
+        }
+        course_angles[i].wind_next_mark = Math.abs(angle_wind)
+        wind_angle_colour = document.createElement("span")
+        wind_angle_colour.setAttribute("class", setWindAngleTextColour(angle_wind))
+        wind_angle_colour.innerHTML = Math.round(course_angles[i].wind_next_mark) + '°'
+
+
         mark_name = markers[course.course_route[i].mark].name
         next_mark_name = markers[course.course_route[i + 1].mark].name
         rounding = course.course_route[i].rounding
@@ -1839,22 +1858,47 @@ function wind_angle(club, course, wind_direction, course_num) {
         course_description_p.appendChild(course_leg)
         course_leg_angles = document.createElement("p")
         if (get_north_direction() == "magnetic") {
-            course_leg_angles.innerHTML = Math.round(course_angles[i].angle_next_mark) + '°M. TWA: ' + Math.round(course_angles[i].wind_next_mark) + '°'
+            course_leg_angles.innerHTML = Math.round(course_angles[i].angle_next_mark) + '°M. TWA: '
         }
         else {
-            course_leg_angles.innerHTML = Math.round(course_angles[i].angle_next_mark) + '°T. TWA: ' + Math.round(course_angles[i].wind_next_mark) + '°'
+            course_leg_angles.innerHTML = Math.round(course_angles[i].angle_next_mark) + '°T. TWA: '
         }
+        course_leg_angles.appendChild(wind_angle_colour)
         course_description_p.appendChild(course_leg_angles)
     }
-
     course_leg = document.createElement("p")
     course_leg.innerHTML = next_mark_name + '<br>'
     course_leg.setAttribute("class", mark_rounding_class)
     course_description_p.appendChild(course_leg)
 
-    // TODO: finish locations for BBYC and RNZYS are pretty consistemt, see if I can work out GPS cordiantes and thereby compass heading
+    if (typeof (markers[course.finish].lat) != "number") {
+        convert_coordinates(markers[course.finish])
+    }
+    last_leg_angle = find_angle(markers[course.course_route[course.course_route.length - 1].mark], markers[course.finish])
+    last_leg_angle_wind = wind_direction - last_leg_angle
     last_leg = document.createElement("p")
-    last_leg.innerHTML = "Variable"
+
+    if (last_leg_angle_wind > 180) {
+        last_leg_angle_wind -= 360
+    }
+    else if (last_leg_angle_wind < -180) {
+        last_leg_angle_wind += 360
+    }
+
+    wind_to_finish = Math.abs(last_leg_angle_wind)
+    
+    wind_angle_colour = document.createElement("span")
+    wind_angle_colour.setAttribute("class", setWindAngleTextColour(last_leg_angle_wind))
+    wind_angle_colour.innerHTML = Math.round(wind_to_finish) + '°'
+
+
+    if (get_north_direction() == "magnetic") {
+        last_leg.innerHTML = Math.round(last_leg_angle) + '°M. TWA: ' 
+    }
+    else {
+        last_leg.innerHTML = Math.round(last_leg_angle) + '°T. TWA: '
+    }
+    last_leg.appendChild(wind_angle_colour)
     course_description_p.appendChild(last_leg)
 
     course_leg = document.createElement("strong")
@@ -1890,7 +1934,7 @@ function get_course() {
     club = document.getElementById("club").value
     course_num = document.getElementById("course-number").value
     wind_dir = document.getElementById("wind-direction").value
-    if (get_north_direction()=="magnetic") {
+    if (get_north_direction() == "magnetic") {
         wind_dir -= magnetic_declination_akl
     }
     get_unique_markers(courses[club][course_num].course_route) //gets unique markers and converts GPS coordinates to decimal degrees

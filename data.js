@@ -1,3 +1,5 @@
+//this isn't used, maybe it can be deleted, or use it instead of a json file?
+
 magnetic_declination_akl = 20.24
 
 //markers
@@ -35,7 +37,7 @@ mark_BrownsIslandBeacon = {name:"Browns Island Beacon", lat:"36°49.438S", long:
  
 
 //courses
-//TODO add name and direction (cw, ccw) propertis to course object (make dictionary list), distance? (calculate?)
+//TODO add distance value? (calculate?)
 courses = {
     4: [start, mark_Iliomama, mark_Motuihegreen, mark_Motukorea, finish],
     5: [start, mark_Iliomama, mark_Motuihegreen, mark_Motukorea, mark_Iliomama, mark_Motuihegreen, mark_Motukorea, finish],

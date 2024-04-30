@@ -58,15 +58,15 @@ p {
     margin: 0;
 }
 
-.mark_rounding_port {
+.port {
     color: red;
 }
 
-.mark_rounding_stbd {
+.stbd {
     color: green;
 }
 
-.mark_rounding_flag {
+.flag {
     color: blue;
 }
 
