@@ -1658,7 +1658,7 @@ markers = {
 }
 
 
-//change this to handle lat and long (remove code duplication, maybe break into another function)
+// TODO change this to handle lat and long (remove code duplication, maybe break into another function)
 function convert_coordinates(marker) {
     degrees = marker.lat.split("°")[0];
     minutes = marker.lat.split("°")[1].slice(0, -1);
