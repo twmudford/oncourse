@@ -19,3 +19,10 @@ manual gps entry
 
 
 for rnzys, add division select and populate courses depending on division
+
+TODO:
+- option to enter the upwind angle of your boat (maybe encorporate as part of sail selection stuff)
+    could then indicate when a leg is considered upwind (ie you wont be able to sail direct)
+
+
+https://map.openseamap.org/
