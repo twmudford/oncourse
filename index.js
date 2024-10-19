@@ -1879,7 +1879,7 @@ function wind_angle(club, course, wind_direction, course_num) {
         course_leg_angles.appendChild(wind_angle_colour)
         course_description_p.appendChild(course_leg_angles)
     }
-    setMarkRoundingTextColour(course.course_route[i].rounding)
+    setMarkRoundingTextColour(course.course_route[course.course_route.length - 1].rounding)
     course_leg = document.createElement("p")
     course_leg.innerHTML = next_mark_name + '<br>'
     course_leg.setAttribute("class", mark_rounding_class)
