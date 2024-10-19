@@ -1789,7 +1789,7 @@ function setCommitteeBoatDisplay(first_mark_rounding) {
     }
 }
 
-function setMarkRoundingTextColour() {
+function setMarkRoundingTextColour(rounding) {
     switch (rounding) {
         case "port":
             mark_rounding_class = "port"
@@ -1863,7 +1863,7 @@ function wind_angle(club, course, wind_direction, course_num) {
         mark_name = markers[course.course_route[i].mark].name
         next_mark_name = markers[course.course_route[i + 1].mark].name
         rounding = course.course_route[i].rounding
-        setMarkRoundingTextColour()
+        setMarkRoundingTextColour(rounding)
 
         course_leg = document.createElement("p")
         course_leg.setAttribute("class", mark_rounding_class)
@@ -1879,6 +1879,7 @@ function wind_angle(club, course, wind_direction, course_num) {
         course_leg_angles.appendChild(wind_angle_colour)
         course_description_p.appendChild(course_leg_angles)
     }
+    setMarkRoundingTextColour(course.course_route[i].rounding)
     course_leg = document.createElement("p")
     course_leg.innerHTML = next_mark_name + '<br>'
     course_leg.setAttribute("class", mark_rounding_class)
