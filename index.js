@@ -6,6 +6,8 @@ magnetic_declination_akl = 20.24
 //JSON 
 courses = {
     "bbyc": {
+        // Course 1 W/L
+        // Course 3 W/L
         "4": {
             "start": "start",
             "course_route": [
@@ -166,40 +168,7 @@ courses = {
             ],
             "finish": "finish_bbyc"
         },
-        "10": {
-            "start": "start",
-            "course_route": [
-                {
-                    "mark": "mark_Motukorea",
-                    "rounding": "flag"
-                },
-                {
-                    "mark": "mark_BrownsIslandBeacon",
-                    "rounding": "stbd"
-                },
-                {
-                    "mark": "mark_Navybuoy",
-                    "rounding": "stbd"
-                },
-                {
-                    "mark": "mark_BrownsIslandBeacon",
-                    "rounding": "port"
-                },
-                {
-                    "mark": "mark_Motukorea",
-                    "rounding": "stbd"
-                },
-                {
-                    "mark": "mark_NorthernLeading",
-                    "rounding": "port"
-                },
-                {
-                    "mark": "mark_Motukorea",
-                    "rounding": "stbd"
-                }
-            ],
-            "finish": "finish_bbyc"
-        },
+        // Course 10 W/L
         "11": {
             "start": "start",
             "course_route": [
@@ -256,62 +225,21 @@ courses = {
             ],
             "finish": "finish_bbyc"
         },
-        "13": {
-            "start": "start",
-            "course_route": [
-                {
-                    "mark": "mark_Rangitoto",
-                    "rounding": "stbd"
-                },
-                {
-                    "mark": "mark_BrownsIslandBeacon",
-                    "rounding": "stbd"
-                },
-                {
-                    "mark": "mark_Navybuoy",
-                    "rounding": "port"
-                },
-                {
-                    "mark": "mark_BrownsIslandBeacon",
-                    "rounding": "port"
-                },
-                {
-                    "mark": "mark_Iliomama",
-                    "rounding": "port"
-                },
-                {
-                    "mark": "mark_Motukorea",
-                    "rounding": "port"
-                }
-            ],
-            "finish": "finish_bbyc"
-        },
+        // Course 13 W/L
         "14": {
             "start": "start",
             "course_route": [
                 {
-                    "mark": "mark_Motukorea",
-                    "rounding": "flag"
-                },
-                {
-                    "mark": "mark_SaltWorks",
+                    "mark": "mark_Iliomama",
                     "rounding": "port"
                 },
                 {
-                    "mark": "mark_NorthernLeading",
+                    "mark": "mark_Motukorea",
                     "rounding": "port"
                 },
                 {
                     "mark": "mark_Iliomama",
-                    "rounding": "stbd"
-                },
-                {
-                    "mark": "mark_Motukorea",
-                    "rounding": "stbd"
-                },
-                {
-                    "mark": "mark_Iliomama",
-                    "rounding": "stbd"
+                    "rounding": "port"
                 },
                 {
                     "mark": "mark_Motukorea",
@@ -559,31 +487,15 @@ courses = {
                 },
                 {
                     "mark": "mark_Iliomama",
-                    "rounding": "stbd"
-                },
-                {
-                    "mark": "mark_Motuihegreen",
-                    "rounding": "stbd"
-                },
-                {
-                    "mark": "mark_Navybuoy",
-                    "rounding": "stbd"
-                },
-                {
-                    "mark": "mark_BrownsIslandBeacon",
                     "rounding": "port"
                 },
                 {
-                    "mark": "mark_Motukorea",
-                    "rounding": "stbd"
+                    "mark": "mark_NorthernLeading",
+                    "rounding": "port"
                 },
                 {
                     "mark": "mark_Iliomama",
-                    "rounding": "port"
-                },
-                {
-                    "mark": "mark_Rangitoto",
-                    "rounding": "port"
+                    "rounding": "stbd"
                 },
                 {
                     "mark": "mark_Motukorea",
@@ -596,36 +508,20 @@ courses = {
             "start": "start",
             "course_route": [
                 {
-                    "mark": "mark_Motukorea",
-                    "rounding": "flag"
-                },
-                {
-                    "mark": "mark_BrownsIslandBeacon",
-                    "rounding": "stbd"
-                },
-                {
-                    "mark": "mark_Navybuoy",
+                    "mark": "mark_Iliomama",
                     "rounding": "port"
                 },
                 {
-                    "mark": "mark_Motuihegreen",
+                    "mark": "mark_NorthernLeading",
+                    "rounding": "port"
+                },
+                {
+                    "mark": "mark_Motukorea",
                     "rounding": "port"
                 },
                 {
                     "mark": "mark_Iliomama",
                     "rounding": "port"
-                },
-                {
-                    "mark": "mark_Motukorea",
-                    "rounding": "stbd"
-                },
-                {
-                    "mark": "mark_Rangitoto",
-                    "rounding": "stbd"
-                },
-                {
-                    "mark": "mark_Iliomama",
-                    "rounding": "stbd"
                 },
                 {
                     "mark": "mark_Motukorea",
@@ -702,6 +598,123 @@ courses = {
                 {
                     "mark": "mark_Rangitoto",
                     "rounding": "port"
+                },
+                {
+                    "mark": "mark_Motukorea",
+                    "rounding": "port"
+                }
+            ],
+            "finish": "finish_bbyc"
+        },
+        // Course 26 Round Motuihe
+        "27": {
+            "start": "start",
+            "course_route": [
+                {
+                    "mark": "mark_Motukorea",
+                    "rounding": "flag"
+                },
+                {
+                    "mark": "mark_BrownsIslandBeacon",
+                    "rounding": "stbd"
+                },
+                {
+                    "mark": "mark_Navybuoy",
+                    "rounding": "stbd"
+                },
+                {
+                    "mark": "mark_BrownsIslandBeacon",
+                    "rounding": "port"
+                },
+                {
+                    "mark": "mark_Iliomama",
+                    "rounding": "port"
+                },
+                {
+                    "mark": "mark_Motukorea",
+                    "rounding": "port"
+                }
+            ],
+            "finish": "finish_bbyc"
+        },
+        "28": {
+            "start": "start",
+            "course_route": [
+                {
+                    "mark": "mark_Motukorea",
+                    "rounding": "flag"
+                },
+                {
+                    "mark": "mark_Iliomama",
+                    "rounding": "port"
+                },
+                {
+                    "mark": "mark_Rangitoto",
+                    "rounding": "port"
+                },
+                {
+                    "mark": "mark_Motukorea",
+                    "rounding": "stbd"
+                }
+            ],
+            "finish": "finish_bbyc"
+        },
+        "29": {
+            "start": "start",
+            "course_route": [
+                {
+                    "mark": "mark_Motukorea",
+                    "rounding": "flag"
+                },
+                {
+                    "mark": "mark_Iliomama",
+                    "rounding": "stbd"
+                },
+                {
+                    "mark": "mark_BrownsIslandBeacon",
+                    "rounding": "stbd"
+                },
+                {
+                    "mark": "mark_Navybuoy",
+                    "rounding": "stbd"
+                },
+                {
+                    "mark": "mark_BrownsIslandBeacon",
+                    "rounding": "port"
+                },
+                {
+                    "mark": "mark_Iliomama",
+                    "rounding": "port"
+                },
+                {
+                    "mark": "mark_Motukorea",
+                    "rounding": "port"
+                }
+            ],
+            "finish": "finish_bbyc"
+        },
+        "30": {
+            "start": "start",
+            "course_route": [
+                {
+                    "mark": "mark_Motukorea",
+                    "rounding": "flag"
+                },
+                {
+                    "mark": "mark_Rangitoto",
+                    "rounding": "stbd"
+                },
+                {
+                    "mark": "mark_Iliomama",
+                    "rounding": "stbd"
+                },
+                {
+                    "mark": "mark_Motukorea",
+                    "rounding": "stbd"
+                },
+                {
+                    "mark": "mark_Iliomama",
+                    "rounding": "stbd"
                 },
                 {
                     "mark": "mark_Motukorea",
