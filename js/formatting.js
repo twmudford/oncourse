@@ -49,3 +49,12 @@ function setWindAngleTextColour(wind_angle) {
     }
     return wind_angle_text_colour
 }
+
+
+// Generate course description HTML output
+function generate_course_description(club, course_num) {
+    course_description_section = document.getElementById("course-description")
+    course_description_heading = document.createElement("h3")
+    course_description_heading.innerHTML += club.toUpperCase() + " Course " + course_num
+    course_description_p = document.createElement("p")
+}

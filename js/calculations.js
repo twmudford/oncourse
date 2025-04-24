@@ -98,3 +98,105 @@ function course_with_angles(course) {
     }
     return course_angles
 }
+
+
+// TODO break this monster function into smaller useful functions
+function wind_angle(course, wind_direction) {
+    course_angles = course_with_angles(course.course_route)
+    
+    // Add Start to html
+    course_leg = document.createElement("strong")
+    course_leg.innerHTML = markers[course.start].name + '<br>'
+    course_description_p.replaceChildren(course_leg)
+
+    // TODO find a way to ping start or start area to then get heading to first mark
+
+    // Add first leg to html
+    first_leg = document.createElement("p")
+    first_leg.innerHTML = "Variable"
+    course_description_p.appendChild(first_leg)
+
+    first_mark_rounding = course.course_route[0].rounding
+    setCommitteeBoatDisplay(first_mark_rounding)
+
+    // Add course info to html
+    for (let i = 0; i < course_angles.length; i++) {
+        angle_wind = wind_direction - course_angles[i].angle_next_mark
+
+        if (angle_wind > 180) {
+            angle_wind -= 360
+        }
+        else if (angle_wind < -180) {
+            angle_wind += 360
+        }
+        course_angles[i].wind_next_mark = Math.abs(angle_wind)
+        wind_angle_colour = document.createElement("span")
+        wind_angle_colour.setAttribute("class", setWindAngleTextColour(angle_wind))
+        wind_angle_colour.innerHTML = Math.round(course_angles[i].wind_next_mark) + '°'
+
+
+        mark_name = markers[course.course_route[i].mark].name
+        next_mark_name = markers[course.course_route[i + 1].mark].name
+        rounding = course.course_route[i].rounding
+        setMarkRoundingTextColour(rounding)
+
+        course_leg = document.createElement("p")
+        course_leg.setAttribute("class", mark_rounding_class)
+        course_leg.innerHTML = mark_name + '<br>'
+        course_description_p.appendChild(course_leg)
+        course_leg_angles = document.createElement("p")
+        if (get_north_direction() == "magnetic") {
+            course_leg_angles.innerHTML = Math.round(course_angles[i].angle_next_mark) + '°M. TWA: '
+        }
+        else {
+            course_leg_angles.innerHTML = Math.round(course_angles[i].angle_next_mark) + '°T. TWA: '
+        }
+        course_leg_angles.appendChild(wind_angle_colour)
+        course_description_p.appendChild(course_leg_angles)
+    }
+
+    // Add final mark to html 
+    setMarkRoundingTextColour(course.course_route[course.course_route.length - 1].rounding)
+    course_leg = document.createElement("p")
+    course_leg.innerHTML = next_mark_name + '<br>'
+    course_leg.setAttribute("class", mark_rounding_class)
+    course_description_p.appendChild(course_leg)
+
+    // Add finish leg to html
+    if (typeof (markers[course.finish].lat) != "number") {
+        convert_coordinates(markers[course.finish])
+    }
+    last_leg_angle = find_angle(markers[course.course_route[course.course_route.length - 1].mark], markers[course.finish])
+    last_leg_angle_wind = wind_direction - last_leg_angle
+    last_leg = document.createElement("p")
+
+
+    // fix wind angles -- can't remember why this is here
+    if (last_leg_angle_wind > 180) {
+        last_leg_angle_wind -= 360
+    }
+    else if (last_leg_angle_wind < -180) {
+        last_leg_angle_wind += 360
+    }
+    wind_to_finish = Math.abs(last_leg_angle_wind)
+
+    wind_angle_colour = document.createElement("span")
+    wind_angle_colour.setAttribute("class", setWindAngleTextColour(last_leg_angle_wind))
+    wind_angle_colour.innerHTML = Math.round(wind_to_finish) + '°'
+
+
+    if (get_north_direction() == "magnetic") {
+        last_leg.innerHTML = Math.round(last_leg_angle) + '°M. TWA: '
+    }
+    else {
+        last_leg.innerHTML = Math.round(last_leg_angle) + '°T. TWA: '
+    }
+    last_leg.appendChild(wind_angle_colour)
+    course_description_p.appendChild(last_leg)
+
+    course_leg = document.createElement("strong")
+    course_leg.innerHTML = markers[course.finish].name, '<br>'
+    course_description_p.appendChild(course_leg)
+
+    course_description_section.replaceChildren(course_description_heading, course_description_p)
+}
